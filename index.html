@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>300 Village Lane | Scotts Valley, California | $2,498,000</title>
+<meta name="description" content="A rare find in Scotts Valley's coveted Polo Ranch community. 4 bedrooms, 4 bathrooms, 3,368 sqft of beautifully upgraded living space on a premier lot.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80' font-family='serif' fill='%231a1a1a'>300</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --white: #ffffff;
+  --charcoal: #1a1a1a;
+  --gold: #C4A265;
+  --gold-light: #d4b87a;
+  --warm-gray: #666666;
+  --light-gray: #f5f4f2;
+  --border: #e5e3df;
+  --serif: 'Cormorant Garamond', 'Georgia', serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+body {
+  font-family: var(--sans);
+  color: var(--charcoal);
+  background: var(--white);
+  line-height: 1.7;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+/* ---- NAVIGATION ---- */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1.25rem 3rem;
+  display: flex; justify-content: space-between; align-items: center;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav.scrolled {
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 var(--border);
+  padding: 0.85rem 3rem;
+}
+.nav-brand {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--white);
+  text-decoration: none;
+  transition: color 0.4s;
+}
+.nav.scrolled .nav-brand { color: var(--charcoal); }
+.nav-links { display: flex; gap: 2.25rem; list-style: none; }
+.nav-links a {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  transition: color 0.4s;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute; bottom: -4px; left: 0; width: 0;
+  height: 1px; background: var(--gold);
+  transition: width 0.3s;
+}
+.nav-links a:hover::after { width: 100%; }
+.nav.scrolled .nav-links a { color: var(--charcoal); }
+.nav-cta {
+  font-size: 0.7rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase;
+  color: var(--white) !important;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.5);
+  padding: 0.55rem 1.5rem;
+  transition: all 0.4s;
+}
+.nav-cta:hover { background: var(--gold); border-color: var(--gold); color: var(--white) !important; }
+.nav.scrolled .nav-cta { color: var(--charcoal) !important; border-color: var(--charcoal); }
+.nav.scrolled .nav-cta:hover { background: var(--charcoal); color: var(--white) !important; border-color: var(--charcoal); }
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 200;
+  background: none; border: none; padding: 4px;
+}
+.nav-hamburger span {
+  width: 24px; height: 1.5px;
+  background: var(--white);
+  transition: all 0.3s;
+}
+.nav.scrolled .nav-hamburger span { background: var(--charcoal); }
+
+/* ---- HERO ---- */
+.hero {
+  position: relative;
+  height: 100vh; min-height: 700px;
+  display: flex; align-items: flex-end;
+  overflow: hidden;
+}
+.hero-img {
+  position: absolute; inset: 0;
+  background-image: url('https://drive.google.com/uc?export=view&id=1h2Dc0RH3LQvpX3tEAixZKRJst7xzgEn5');
+  background-size: cover;
+  background-position: center 40%;
+  transform: scale(1.05);
+  transition: transform 8s ease-out;
+}
+.hero-img.loaded { transform: scale(1); }
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 10, 10, 0.75) 0%,
+    rgba(10, 10, 10, 0.3) 40%,
+    rgba(10, 10, 10, 0.1) 70%,
+    rgba(10, 10, 10, 0.15) 100%
+  );
+}
+.hero-content {
+  position: relative; z-index: 2;
+  width: 100%;
+  padding: 0 6% 5.5rem;
+}
+.hero-tag {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.25rem;
+  opacity: 0; transform: translateY(20px);
+  animation: fadeUp 0.8s 0.3s forwards;
+}
+.hero-address {
+  font-family: var(--serif);
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  opacity: 0; transform: translateY(25px);
+  animation: fadeUp 0.8s 0.5s forwards;
+}
+.hero-city {
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(255,255,255,0.7);
+  margin-top: 0.3rem;
+  letter-spacing: 0.02em;
+  opacity: 0; transform: translateY(20px);
+  animation: fadeUp 0.8s 0.65s forwards;
+}
+.hero-price {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 400;
+  color: var(--white);
+  margin-top: 1.75rem;
+  letter-spacing: 0.02em;
+  opacity: 0; transform: translateY(20px);
+  animation: fadeUp 0.8s 0.8s forwards;
+}
+.hero-stats {
+  display: flex; gap: 2rem; margin-top: 1.25rem;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+  opacity: 0; transform: translateY(20px);
+  animation: fadeUp 0.8s 0.95s forwards;
+}
+.hero-stats span { display: flex; align-items: center; gap: 0.5rem; }
+.hero-stat-divider { color: var(--gold); }
+.hero-scroll {
+  position: absolute;
+  bottom: 2rem; left: 50%; transform: translateX(-50%);
+  z-index: 2;
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  text-decoration: none;
+  opacity: 0; animation: fadeUp 0.8s 1.2s forwards;
+}
+.hero-scroll span {
+  font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+.hero-scroll-line {
+  width: 1px; height: 40px; background: rgba(255,255,255,0.3);
+  position: relative; overflow: hidden;
+}
+.hero-scroll-line::after {
+  content: '';
+  position: absolute; top: -100%; left: 0;
+  width: 1px; height: 100%;
+  background: var(--gold);
+  animation: scrollLine 2s infinite;
+}
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes scrollLine {
+  0% { top: -100%; }
+  50% { top: 0; }
+  100% { top: 100%; }
+}
+
+/* ---- SECTION COMMONS ---- */
+section { padding: 6rem 6%; }
+.section-narrow { max-width: 860px; margin: 0 auto; }
+.section-wide { max-width: 1200px; margin: 0 auto; }
+.section-full { max-width: 1400px; margin: 0 auto; }
+
+.section-label {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--charcoal);
+  margin-bottom: 2rem;
+}
+.section-divider {
+  width: 50px; height: 1px;
+  background: var(--gold);
+  margin-bottom: 2.5rem;
+}
+
+/* ---- STATS BAR ---- */
+.stats-bar {
+  background: var(--light-gray);
+  padding: 3rem 6%;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.stats-grid {
+  max-width: 1100px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  text-align: center;
+}
+.stat-item { padding: 0.5rem 0; }
+.stat-value {
+  font-family: var(--serif);
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--charcoal);
+  line-height: 1.3;
+}
+.stat-label {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+  margin-top: 0.3rem;
+}
+
+/* ---- GALLERY ---- */
+.gallery { background: var(--white); padding: 5rem 4%; }
+.gallery-grid {
+  max-width: 1400px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 280px;
+  gap: 6px;
+}
+.gallery-item {
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+.gallery-item:first-child {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+.gallery-item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.gallery-item:hover img { transform: scale(1.04); }
+.gallery-item::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0);
+  transition: background 0.4s;
+}
+.gallery-item:hover::after { background: rgba(0,0,0,0.08); }
+.gallery-count {
+  position: absolute; bottom: 12px; right: 12px;
+  font-size: 0.65rem; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--white);
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(8px);
+  padding: 0.4rem 0.8rem;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ---- LIGHTBOX ---- */
+.lightbox {
+  display: none;
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(5, 5, 5, 0.96);
+  justify-content: center; align-items: center;
+}
+.lightbox.active { display: flex; }
+.lightbox img {
+  max-width: 90vw; max-height: 85vh;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.lightbox img.visible { opacity: 1; }
+.lightbox-close {
+  position: absolute; top: 1.5rem; right: 2rem;
+  background: none; border: none;
+  color: rgba(255,255,255,0.7);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s;
+  font-weight: 300;
+  font-family: var(--sans);
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+}
+.lightbox-close:hover { color: var(--white); }
+.lightbox-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: none; border: none;
+  color: rgba(255,255,255,0.6);
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: color 0.3s;
+  padding: 1rem;
+  font-weight: 200;
+  font-family: var(--serif);
+}
+.lightbox-arrow:hover { color: var(--white); }
+.lightbox-prev { left: 1rem; }
+.lightbox-next { right: 1rem; }
+.lightbox-counter {
+  position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.5);
+}
+
+/* ---- ABOUT ---- */
+.about { background: var(--white); }
+.about-lead {
+  font-family: var(--serif);
+  font-size: clamp(1.35rem, 2.2vw, 1.65rem);
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--charcoal);
+  margin-bottom: 3rem;
+  font-style: italic;
+}
+.about-subsection { margin-bottom: 3rem; }
+.about-subsection:last-child { margin-bottom: 0; }
+.about-subtitle {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  margin-bottom: 0.8rem;
+}
+.about-text {
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: var(--warm-gray);
+  font-weight: 300;
+}
+
+/* ---- FEATURES GRID ---- */
+.features { background: var(--light-gray); }
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-top: 1rem;
+}
+.feature-card {
+  background: var(--white);
+  padding: 2.25rem;
+}
+.feature-icon {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+.feature-name {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  margin-bottom: 0.4rem;
+}
+.feature-desc {
+  font-size: 0.82rem;
+  line-height: 1.65;
+  color: var(--warm-gray);
+  font-weight: 300;
+}
+
+/* ---- 3D TOUR ---- */
+.tour { background: var(--charcoal); }
+.tour .section-label { color: var(--gold); }
+.tour .section-title { color: var(--white); }
+.tour-frame {
+  max-width: 1200px; margin: 0 auto;
+  aspect-ratio: 16/9;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.tour-frame iframe {
+  width: 100%; height: 100%;
+  border: none;
+}
+
+/* ---- FLOOR PLANS ---- */
+.floorplans { background: var(--white); }
+.floorplans-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.floorplan-item { text-align: center; }
+.floorplan-item img {
+  width: 100%;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+}
+.floorplan-item img:hover { box-shadow: 0 8px 40px rgba(0,0,0,0.08); }
+.floorplan-label {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  margin-top: 1.25rem;
+}
+
+/* ---- LANDSCAPE SECTION ---- */
+.landscape { background: var(--light-gray); overflow: hidden; }
+.landscape-content {
+  max-width: 1200px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.landscape-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.landscape-images img {
+  width: 100%; height: 300px;
+  object-fit: cover;
+}
+.landscape-images img:first-child {
+  grid-column: span 2;
+  height: 320px;
+}
+.landscape-text .about-text { margin-bottom: 1.25rem; }
+.landscape-credit {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--warm-gray);
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+.landscape-credit a {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.landscape-credit a:hover { color: var(--charcoal); }
+
+/* ---- LOCATION ---- */
+.location { background: var(--white); }
+.location-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.location-item {
+  display: flex; gap: 1.25rem;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+.location-time {
+  font-family: var(--serif);
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--gold);
+  min-width: 50px;
+  line-height: 1;
+  padding-top: 0.15rem;
+}
+.location-time-unit {
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+  display: block;
+  margin-top: 0.15rem;
+}
+.location-name {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  margin-bottom: 0.2rem;
+}
+.location-desc {
+  font-size: 0.82rem;
+  color: var(--warm-gray);
+  font-weight: 300;
+  line-height: 1.6;
+}
+.community-box {
+  background: var(--light-gray);
+  padding: 2.5rem;
+  border-left: 3px solid var(--gold);
+}
+.community-box h3 {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  margin-bottom: 0.75rem;
+}
+.community-box p {
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: var(--warm-gray);
+  font-weight: 300;
+}
+
+/* ---- CONTACT ---- */
+.contact {
+  background: var(--charcoal);
+  text-align: center;
+  padding: 6rem 6%;
+}
+.contact .section-label { color: var(--gold); }
+.contact .section-title { color: var(--white); margin-bottom: 0.75rem; }
+.contact-subtitle {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 3rem;
+}
+.contact-form {
+  max-width: 520px; margin: 0 auto;
+  display: flex; flex-direction: column; gap: 1rem;
+}
+.contact-row { display: flex; gap: 1rem; }
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 1rem 1.25rem;
+  color: var(--white);
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 300;
+  transition: border-color 0.3s;
+  outline: none;
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(255,255,255,0.3);
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--gold);
+}
+.contact-form textarea { height: 120px; resize: vertical; }
+.contact-btn {
+  background: var(--gold);
+  color: var(--white);
+  border: none;
+  padding: 1.1rem 2.5rem;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 0.5rem;
+}
+.contact-btn:hover { background: var(--gold-light); }
+.contact-mls {
+  margin-top: 3rem;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.05em;
+}
+
+/* ---- FOOTER ---- */
+.footer {
+  padding: 2rem 6%;
+  text-align: center;
+  background: #111;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.footer p {
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.25);
+  letter-spacing: 0.05em;
+  line-height: 1.8;
+}
+
+/* ---- REVEAL ANIMATION ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- MOBILE MENU OVERLAY ---- */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  background: rgba(26,26,26,0.98);
+  backdrop-filter: blur(20px);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+}
+.mobile-menu.active { display: flex; }
+.mobile-menu a {
+  font-family: var(--serif);
+  font-size: 1.75rem;
+  font-weight: 300;
+  color: var(--white);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.mobile-menu a:hover { color: var(--gold); }
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 1024px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .stats-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 220px;
+  }
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+  .landscape-content { grid-template-columns: 1fr; gap: 2.5rem; }
+  .location-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .floorplans-grid { gap: 1.5rem; }
+}
+@media (max-width: 768px) {
+  section { padding: 4rem 5%; }
+  .nav { padding: 1rem 1.5rem; }
+  .nav.scrolled { padding: 0.75rem 1.5rem; }
+  .hero-content { padding: 0 5% 4rem; }
+  .hero-stats { flex-wrap: wrap; gap: 1rem 1.5rem; }
+  .stats-grid { grid-template-columns: repeat(3, 1fr); }
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 180px;
+  }
+  .gallery-item:first-child {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+  .features-grid { grid-template-columns: 1fr; }
+  .floorplans-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .landscape-images img { height: 220px; }
+  .landscape-images img:first-child { height: 240px; }
+  .lightbox-arrow { font-size: 1.8rem; }
+  .contact-row { flex-direction: column; }
+  .hero-scroll { display: none; }
+}
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 150px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-brand">300 Village Lane</a>
+  <ul class="nav-links">
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#tour">3D Tour</a></li>
+    <li><a href="#floorplans">Floor Plans</a></li>
+    <li><a href="#landscape">Landscape</a></li>
+    <li><a href="#location">Location</a></li>
+    <li><a href="#contact" class="nav-cta">Inquire</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#gallery" onclick="closeMobileMenu()">Gallery</a>
+  <a href="#about" onclick="closeMobileMenu()">About</a>
+  <a href="#tour" onclick="closeMobileMenu()">3D Tour</a>
+  <a href="#floorplans" onclick="closeMobileMenu()">Floor Plans</a>
+  <a href="#landscape" onclick="closeMobileMenu()">Landscape</a>
+  <a href="#location" onclick="closeMobileMenu()">Location</a>
+  <a href="#contact" onclick="closeMobileMenu()">Schedule a Showing</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-img" id="heroImg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Polo Ranch &middot; Scotts Valley</div>
+    <h1 class="hero-address">300 Village Lane</h1>
+    <p class="hero-city">Scotts Valley, California</p>
+    <p class="hero-price">$2,498,000</p>
+    <div class="hero-stats">
+      <span>4 Bedrooms</span>
+      <span class="hero-stat-divider">&middot;</span>
+      <span>4 Bathrooms</span>
+      <span class="hero-stat-divider">&middot;</span>
+      <span>3,368 Sq Ft</span>
+    </div>
+  </div>
+  <a href="#gallery" class="hero-scroll">
+    <span>Explore</span>
+    <div class="hero-scroll-line"></div>
+  </a>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-value">4</div>
+      <div class="stat-label">Bedrooms</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">4</div>
+      <div class="stat-label">Bathrooms</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">3,368</div>
+      <div class="stat-label">Square Feet</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">8,272</div>
+      <div class="stat-label">Lot Sq Ft</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">2022</div>
+      <div class="stat-label">Year Built</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">3-Car</div>
+      <div class="stat-label">Tandem Garage</div>
+    </div>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="section-wide" style="text-align:center; margin-bottom:2.5rem;">
+    <div class="section-label">Portfolio</div>
+    <div class="section-title">A Visual Tour</div>
+  </div>
+  <div class="gallery-grid" id="galleryGrid">
+    <div class="gallery-item" onclick="openLightbox(0)">
+      <img src="https://drive.google.com/uc?export=view&id=1h2Dc0RH3LQvpX3tEAixZKRJst7xzgEn5" alt="Exterior front view" loading="lazy">
+    </div>
+    <div class="gallery-item" onclick="openLightbox(1)">
+      <img src="https://drive.google.com/uc?export=view&id=1nZTIick8q5XTWLoyGLgY07JhRXXF4flb" alt="Interior living area" loading="lazy">
+    </div>
+    <div class="gallery-item" onclick="openLightbox(2)">
+      <img src="https://drive.google.com/uc?export=view&id=1NTvHtPmyCNKJmDU7Gr_zJ9tfp0bpjpYL" alt="Interior detail" loading="lazy">
+    </div>
+    <div class="gallery-item" onclick="openLightbox(3)">
+      <img src="https://drive.google.com/uc?export=view&id=18GJPHxU-DZRsITQysxMQKGaolxvniTZ6" alt="Interior living space" loading="lazy">
+    </div>
+    <div class="gallery-item" onclick="openLightbox(4)">
+      <img src="https://drive.google.com/uc?export=view&id=10w1bUNkfuvfQvXZJQfKrDH55UsesN_10" alt="Interior detail" loading="lazy">
+    </div>
+    <div class="gallery-item" onclick="openLightbox(5)">
+      <img src="https://drive.google.com/uc?export=view&id=1juvkOA2NEJlwtVwQjk3puAPnfs9JUmD4" alt="Interior room" loading="lazy">
+    </div>
+    <div class="gallery-item" onclick="openLightbox(6)">
+      <img src="https://drive.google.com/uc?export=view&id=1jTuml5qSyFNB6WZGDa2m3Tr-7iosiHYq" alt="Landscape view" loading="lazy">
+    </div>
+    <div class="gallery-item" onclick="openLightbox(7)">
+      <img src="https://drive.google.com/uc?export=view&id=1Nuz5YYEPD2MDi6eeROIBezX0hkBCaTN3" alt="Landscape garden" loading="lazy">
+    </div>
+    <div class="gallery-item" onclick="openLightbox(8)">
+      <img src="https://drive.google.com/uc?export=view&id=1pGdRCGBbLogJneZ3jnjXrEtYnxhOoziC" alt="Backyard landscape" loading="lazy">
+    </div>
+    <div class="gallery-item" onclick="openLightbox(9)">
+      <img src="https://drive.google.com/uc?export=view&id=1xGT_9kLl8ASpPQsLvWYp595JGxqUCC80" alt="Landscape detail" loading="lazy">
+    </div>
+    <div class="gallery-item" onclick="openLightbox(10)">
+      <img src="https://pub.hyperagent.com/api/published/pbf01KX52VNHP_2CR0YZX1NRYWY6S0/LEN04622.jpg" alt="Side garden pathway" loading="lazy">
+    </div>
+    <div class="gallery-item" onclick="openLightbox(11)">
+      <img src="https://pub.hyperagent.com/api/published/pbf01KX52VRXM_9TF4C8KMHMA0K55P/LEN04646.jpg" alt="Fruit trees along fence" loading="lazy">
+      <div class="gallery-count">12 of 14</div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(12)">
+      <img src="https://drive.google.com/uc?export=view&id=1JM51bKgk0gPDcgp4zlI8zlYcuHqjGA8M" alt="First floor plan" loading="lazy">
+    </div>
+    <div class="gallery-item" onclick="openLightbox(13)">
+      <img src="https://drive.google.com/uc?export=view&id=12CvRWOMd8bmACrDkCuYaP5LPavbSjiM7" alt="Second floor plan" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+  <button class="lightbox-arrow lightbox-prev" onclick="prevPhoto()">&#8249;</button>
+  <img id="lightboxImg" src="" alt="Property photo">
+  <button class="lightbox-arrow lightbox-next" onclick="nextPhoto()">&#8250;</button>
+  <div class="lightbox-counter" id="lightboxCounter"></div>
+</div>
+
+<!-- ABOUT THE PROPERTY -->
+<section class="about" id="about">
+  <div class="section-narrow">
+    <div class="section-label reveal">The Residence</div>
+    <h2 class="section-title reveal">An Exceptional Offering in Polo Ranch</h2>
+    <div class="section-divider reveal"></div>
+
+    <p class="about-lead reveal">Nestled within Scotts Valley's coveted Polo Ranch community, this extraordinary residence presents a rare convergence of modern sophistication, artisan craftsmanship, and the natural splendor of the Santa Cruz Mountains.</p>
+
+    <div class="about-subsection reveal">
+      <h3 class="about-subtitle">The Home</h3>
+      <p class="about-text">Spanning over 3,360 square feet of beautifully curated living space, this four-bedroom, four-bathroom residence occupies one of the community's premier lots -- graced with the privacy of just a single neighboring home. Built in 2022 and thoughtfully enhanced with over $350,000 in owner-invested upgrades, every detail reflects an uncommon commitment to quality and intentional design.</p>
+    </div>
+
+    <div class="about-subsection reveal">
+      <h3 class="about-subtitle">The Kitchen & Great Room</h3>
+      <p class="about-text">At the heart of the home, a chef's kitchen anchors the expansive open floor plan with stainless steel appliances, granite countertops, a generous walk-in pantry, and seamless flow into the great room. A gas fireplace creates a natural gathering point, while walls of light animate the space throughout the day. The main level also features a private bedroom with an en suite full bathroom -- ideal for guests or multigenerational living -- along with a dedicated enclosed office appointed with bespoke reclaimed black walnut and acoustic glass doors, handcrafted by Santa Cruz artisan Truman Designs.</p>
+    </div>
+
+    <div class="about-subsection reveal">
+      <h3 class="about-subtitle">The Primary Suite & Upper Level</h3>
+      <p class="about-text">Upstairs, the luxurious primary suite offers a tranquil retreat with a spacious walk-in closet and spa-inspired bath designed for daily indulgence. Two additional bedrooms share a full bathroom, while an oversized loft and a generously proportioned bonus room provide exceptional flexibility -- whether as a media lounge, creative studio, or children's play area.</p>
+    </div>
+
+    <div class="about-subsection reveal">
+      <h3 class="about-subtitle">The Upgrades</h3>
+      <p class="about-text">The level of finish throughout this home speaks for itself. Premium hardwood flooring, motorized blinds, an epoxy-finished three-car tandem garage and California Room, and custom garage cabinetry are just the beginning. A fully permitted retaining wall creates approximately 500 additional square feet of usable backyard space -- a transformative improvement that redefines the outdoor experience. Central heating is supplemented by solar panels, and central air conditioning ensures year-round comfort.</p>
+    </div>
+  </div>
+</section>
+
+<!-- KEY FEATURES -->
+<section class="features" id="features">
+  <div class="section-wide">
+    <div style="text-align:center;">
+      <div class="section-label reveal">Details</div>
+      <h2 class="section-title reveal">Key Features</h2>
+    </div>
+    <div class="features-grid reveal">
+      <div class="feature-card">
+        <div class="feature-icon">01</div>
+        <div class="feature-name">Premier Lot Position</div>
+        <div class="feature-desc">One of the community's finest lots with only a single neighboring home, offering unmatched privacy and natural surroundings.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">02</div>
+        <div class="feature-name">Artisan Office</div>
+        <div class="feature-desc">Enclosed office featuring bespoke reclaimed black walnut and acoustic glass doors handcrafted by Santa Cruz artisan Truman Designs.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">03</div>
+        <div class="feature-name">$350K+ in Upgrades</div>
+        <div class="feature-desc">Premium hardwood floors, motorized blinds, epoxy-finished garage and California Room, custom cabinetry, and permitted retaining wall.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">04</div>
+        <div class="feature-name">Heritage Oak & Open Space</div>
+        <div class="feature-desc">A magnificent 300+ year-old heritage oak anchors the property, which borders a private trailhead to 100+ acres of protected open space.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">05</div>
+        <div class="feature-name">Edible Permaculture Garden</div>
+        <div class="feature-desc">Professionally designed landscape with fruit trees, berries, herbs, flowers, and richly restored living soil -- a true outdoor sanctuary.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">06</div>
+        <div class="feature-name">Solar + Central Systems</div>
+        <div class="feature-desc">Central heating with solar panel supplementation and central air conditioning deliver comfort and energy efficiency year-round.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">07</div>
+        <div class="feature-name">Flexible Floor Plan</div>
+        <div class="feature-desc">Main-level guest suite, upstairs loft, oversized bonus room, and dedicated office adapt effortlessly to evolving needs.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">08</div>
+        <div class="feature-name">Three-Car Tandem Garage</div>
+        <div class="feature-desc">Epoxy-finished with custom cabinetry, the garage provides ample storage alongside parking for three vehicles.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">09</div>
+        <div class="feature-name">Monterey Bay Vistas</div>
+        <div class="feature-desc">Peaceful walks beneath towering redwoods reveal sweeping views of Monterey Bay -- just steps from the front door.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3D VIRTUAL TOUR -->
+<section class="tour" id="tour">
+  <div style="text-align:center; margin-bottom:2.5rem;">
+    <div class="section-label reveal">Immersive</div>
+    <h2 class="section-title reveal">Walk Through the Home</h2>
+  </div>
+  <div class="tour-frame reveal">
+    <iframe src="https://my.matterport.com/show/?m=iRyG9i38wvv" allowfullscreen allow="xr-spatial-tracking" title="300 Village Lane 3D Tour"></iframe>
+  </div>
+</section>
+
+<!-- FLOOR PLANS -->
+<section class="floorplans" id="floorplans">
+  <div style="text-align:center; margin-bottom:3rem;">
+    <div class="section-label reveal">Architecture</div>
+    <h2 class="section-title reveal">Floor Plans</h2>
+  </div>
+  <div class="floorplans-grid reveal">
+    <div class="floorplan-item">
+      <img src="https://drive.google.com/uc?export=view&id=1JM51bKgk0gPDcgp4zlI8zlYcuHqjGA8M" alt="First floor plan" onclick="openLightbox(12)">
+      <div class="floorplan-label">First Floor</div>
+    </div>
+    <div class="floorplan-item">
+      <img src="https://drive.google.com/uc?export=view&id=12CvRWOMd8bmACrDkCuYaP5LPavbSjiM7" alt="Second floor plan" onclick="openLightbox(13)">
+      <div class="floorplan-label">Second Floor</div>
+    </div>
+  </div>
+</section>
+
+<!-- LANDSCAPE -->
+<section class="landscape" id="landscape">
+  <div class="landscape-content">
+    <div class="landscape-images reveal">
+      <img src="https://pub.hyperagent.com/api/published/pbf01KX52VNHP_2CR0YZX1NRYWY6S0/LEN04622.jpg" alt="Side garden pathway">
+      <img src="https://pub.hyperagent.com/api/published/pbf01KX52VRXM_9TF4C8KMHMA0K55P/LEN04646.jpg" alt="Fruit trees along fence">
+      <img src="https://drive.google.com/uc?export=view&id=1pGdRCGBbLogJneZ3jnjXrEtYnxhOoziC" alt="Backyard landscape">
+    </div>
+    <div class="landscape-text reveal">
+      <div class="section-label">The Grounds</div>
+      <h2 class="section-title">A Living Landscape</h2>
+      <div class="section-divider"></div>
+      <p class="about-text">The outdoor experience at 300 Village Lane is nothing short of extraordinary. A professionally designed edible permaculture landscape transforms the grounds into a true one-of-a-kind retreat -- abundant with fruit trees, berries, herbs, seasonal flowers, and richly restored living soil that nourishes the ecosystem from the ground up.</p>
+      <p class="about-text">A magnificent heritage oak, estimated at over 300 years old, anchors the property with timeless grace. The lot borders a private trailhead providing direct access to over 100 acres of permanently protected open space, where peaceful walks beneath towering redwoods reveal sweeping panoramas of the Monterey Bay.</p>
+      <p class="about-text">A fully permitted retaining wall creates approximately 500 square feet of additional usable backyard space -- an inspired addition that extends the living experience seamlessly outdoors.</p>
+      <div class="landscape-credit">
+        Landscape designed by <a href="https://livingground.studio" target="_blank" rel="noopener noreferrer">Living Ground Studio</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="location" id="location">
+  <div style="text-align:center; margin-bottom:3.5rem;">
+    <div class="section-label reveal">Setting</div>
+    <h2 class="section-title reveal">The Best of Northern California</h2>
+  </div>
+  <div class="location-grid">
+    <div class="reveal">
+      <div class="location-item">
+        <div>
+          <div class="location-time">5<span class="location-time-unit">min</span></div>
+        </div>
+        <div>
+          <div class="location-name">Top-Rated Schools</div>
+          <div class="location-desc">Scotts Valley's excellent public schools, consistently ranked among the region's finest, are just minutes from the front door.</div>
+        </div>
+      </div>
+      <div class="location-item">
+        <div>
+          <div class="location-time">5<span class="location-time-unit">min</span></div>
+        </div>
+        <div>
+          <div class="location-name">Highway 17 Access</div>
+          <div class="location-desc">Direct corridor to Silicon Valley employers, with commuter shuttle service available to major tech campuses.</div>
+        </div>
+      </div>
+      <div class="location-item">
+        <div>
+          <div class="location-time">15<span class="location-time-unit">min</span></div>
+        </div>
+        <div>
+          <div class="location-name">Santa Cruz Beaches</div>
+          <div class="location-desc">The iconic beaches, boardwalk, and vibrant downtown of Santa Cruz are a short scenic drive away.</div>
+        </div>
+      </div>
+      <div class="location-item">
+        <div>
+          <div class="location-time">35<span class="location-time-unit">min</span></div>
+        </div>
+        <div>
+          <div class="location-name">Silicon Valley</div>
+          <div class="location-desc">Major employers including Apple, Google, Netflix, and countless startups -- accessible via Highway 17 or dedicated shuttle services.</div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="community-box">
+        <h3>Polo Ranch Community</h3>
+        <p>An intimate enclave of modern homes in the heart of Scotts Valley, Polo Ranch offers the rare combination of new construction quality, mountain setting, and convenient access to everything the region offers. With parks, cafes, restaurants, and shopping just minutes away, residents enjoy a lifestyle where Silicon Valley ambition meets Santa Cruz soul.</p>
+        <p style="margin-top: 1rem;">HOA: $444/month &middot; Community amenities and common area maintenance included.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-label">Private Showing</div>
+  <h2 class="section-title">Schedule a Viewing</h2>
+  <p class="contact-subtitle">Experience 300 Village Lane in person</p>
+  <form class="contact-form" onsubmit="handleSubmit(event)">
+    <div class="contact-row">
+      <input type="text" placeholder="First Name" required>
+      <input type="text" placeholder="Last Name" required>
+    </div>
+    <input type="email" placeholder="Email Address" required>
+    <input type="tel" placeholder="Phone Number">
+    <textarea placeholder="I would like to schedule a private showing of 300 Village Lane..."></textarea>
+    <button type="submit" class="contact-btn">Request a Showing</button>
+  </form>
+  <p class="contact-mls">MLS# CV26145891</p>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>300 Village Lane, Scotts Valley, California 95066<br>
+  Information deemed reliable but not guaranteed. Buyer to verify all information independently.</p>
+</footer>
+
+<script>
+/* ---- PHOTOS ARRAY ---- */
+const photos = [
+  'https://drive.google.com/uc?export=view&id=1h2Dc0RH3LQvpX3tEAixZKRJst7xzgEn5',
+  'https://drive.google.com/uc?export=view&id=1nZTIick8q5XTWLoyGLgY07JhRXXF4flb',
+  'https://drive.google.com/uc?export=view&id=1NTvHtPmyCNKJmDU7Gr_zJ9tfp0bpjpYL',
+  'https://drive.google.com/uc?export=view&id=18GJPHxU-DZRsITQysxMQKGaolxvniTZ6',
+  'https://drive.google.com/uc?export=view&id=10w1bUNkfuvfQvXZJQfKrDH55UsesN_10',
+  'https://drive.google.com/uc?export=view&id=1juvkOA2NEJlwtVwQjk3puAPnfs9JUmD4',
+  'https://drive.google.com/uc?export=view&id=1jTuml5qSyFNB6WZGDa2m3Tr-7iosiHYq',
+  'https://drive.google.com/uc?export=view&id=1Nuz5YYEPD2MDi6eeROIBezX0hkBCaTN3',
+  'https://drive.google.com/uc?export=view&id=1pGdRCGBbLogJneZ3jnjXrEtYnxhOoziC',
+  'https://drive.google.com/uc?export=view&id=1xGT_9kLl8ASpPQsLvWYp595JGxqUCC80',
+  'https://pub.hyperagent.com/api/published/pbf01KX52VNHP_2CR0YZX1NRYWY6S0/LEN04622.jpg',
+  'https://pub.hyperagent.com/api/published/pbf01KX52VRXM_9TF4C8KMHMA0K55P/LEN04646.jpg',
+  'https://drive.google.com/uc?export=view&id=1JM51bKgk0gPDcgp4zlI8zlYcuHqjGA8M',
+  'https://drive.google.com/uc?export=view&id=12CvRWOMd8bmACrDkCuYaP5LPavbSjiM7'
+];
+
+let currentPhoto = 0;
+
+/* ---- NAV SCROLL ---- */
+const nav = document.getElementById('nav');
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 80) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+  lastScroll = window.scrollY;
+});
+
+/* ---- MOBILE MENU ---- */
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  mobileMenu.classList.toggle('active');
+  document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+});
+function closeMobileMenu() {
+  mobileMenu.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+/* ---- HERO ANIMATION ---- */
+window.addEventListener('load', () => {
+  document.getElementById('heroImg').classList.add('loaded');
+});
+
+/* ---- LIGHTBOX ---- */
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxCounter = document.getElementById('lightboxCounter');
+
+function openLightbox(index) {
+  currentPhoto = index;
+  updateLightbox();
+  lightbox.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('active');
+  document.body.style.overflow = '';
+  lightboxImg.classList.remove('visible');
+}
+
+function updateLightbox() {
+  lightboxImg.classList.remove('visible');
+  setTimeout(() => {
+    lightboxImg.src = photos[currentPhoto];
+    lightboxImg.onload = () => lightboxImg.classList.add('visible');
+    lightboxCounter.textContent = (currentPhoto + 1) + ' / ' + photos.length;
+  }, 150);
+}
+
+function nextPhoto() {
+  currentPhoto = (currentPhoto + 1) % photos.length;
+  updateLightbox();
+}
+
+function prevPhoto() {
+  currentPhoto = (currentPhoto - 1 + photos.length) % photos.length;
+  updateLightbox();
+}
+
+/* Keyboard navigation */
+document.addEventListener('keydown', (e) => {
+  if (!lightbox.classList.contains('active')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowRight') nextPhoto();
+  if (e.key === 'ArrowLeft') prevPhoto();
+});
+
+/* Click outside image to close */
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) closeLightbox();
+});
+
+/* Touch swipe support */
+let touchStartX = 0;
+let touchEndX = 0;
+lightbox.addEventListener('touchstart', (e) => {
+  touchStartX = e.changedTouches[0].screenX;
+}, { passive: true });
+lightbox.addEventListener('touchend', (e) => {
+  touchEndX = e.changedTouches[0].screenX;
+  const diff = touchStartX - touchEndX;
+  if (Math.abs(diff) > 50) {
+    if (diff > 0) nextPhoto();
+    else prevPhoto();
+  }
+}, { passive: true });
+
+/* ---- SCROLL REVEAL ---- */
+const revealElements = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+revealElements.forEach(el => revealObserver.observe(el));
+
+/* ---- FORM HANDLER ---- */
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.contact-btn');
+  btn.textContent = 'Request Sent';
+  btn.style.background = '#2d6a4f';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = 'Request a Showing';
+    btn.style.background = '';
+    btn.disabled = false;
+    e.target.reset();
+  }, 3000);
+}
+</script>
+</body>
+</html>
