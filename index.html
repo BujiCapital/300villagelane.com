@@ -68,6 +68,8 @@ p { color: #444; line-height: 1.8; }
 .nav.scrolled .nav-hamburger span { background: #1a1a1a; }
 .mobile-menu { display: none; position: fixed; inset: 0; z-index: 150; background: rgba(26,26,26,0.98); backdrop-filter: blur(20px); flex-direction: column; justify-content: center; align-items: center; gap: 2.5rem; }
 .mobile-menu.active { display: flex; }
+.mobile-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; color: #fff; font-size: 2rem; cursor: pointer; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; opacity: .6; transition: opacity .2s; }
+.mobile-close:hover { opacity: 1; }
 .mobile-menu a { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; font-weight: 300; color: #fff; text-decoration: none; transition: color 0.3s; }
 .mobile-menu a:hover { color: #C4A265; }
 
@@ -249,6 +251,7 @@ p { color: #444; line-height: 1.8; }
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMobile()" aria-label="Close menu">&times;</button>
   <a href="#gallery" onclick="closeMobile()">Gallery</a>
   <a href="#about" onclick="closeMobile()">About</a>
   <a href="#tour" onclick="closeMobile()">3D Tour</a>
