@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Scotts Valley | 300 Village Lane</title>
+<meta name="description" content="Thirty minutes from Silicon Valley. A world apart. Discover why families are leaving Cupertino and Palo Alto for Scotts Valley's top-rated schools, redwood forests, and homes that actually have yards.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' x='50' text-anchor='middle' font-size='60' font-family='serif' fill='%23C4A265'>300</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body { font-family: 'Inter', sans-serif; font-weight: 300; color: #1a1a1a; background: #fff; line-height: 1.7; font-size: 16px; overflow-x: hidden; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+button { border: none; background: none; cursor: pointer; font-family: inherit; }
+
+/* ===== TYPOGRAPHY ===== */
+h1, h2, h3, h4 { font-family: 'Cormorant Garamond', 'Georgia', serif; font-weight: 400; letter-spacing: 0.01em; }
+h2 { font-size: clamp(2rem, 4vw, 3rem); color: #1a1a1a; margin-bottom: 1rem; }
+h3 { font-size: clamp(1.4rem, 2.5vw, 1.8rem); color: #1a1a1a; margin-bottom: 0.75rem; }
+p { color: #444; line-height: 1.8; }
+
+/* ===== LAYOUT ===== */
+.container { max-width: 1320px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); }
+.container-narrow { max-width: 820px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); }
+.section { padding: clamp(4rem, 8vw, 7rem) 0; }
+.section-label { font-family: 'Inter', sans-serif; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: #C4A265; margin-bottom: 0.75rem; display: block; }
+.text-center { text-align: center; }
+
+/* ===== ANIMATIONS ===== */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay: 0.1s; }
+.reveal-d2 { transition-delay: 0.2s; }
+.reveal-d3 { transition-delay: 0.3s; }
+.reveal-d4 { transition-delay: 0.4s; }
+
+/* counter animation */
+.counter-value { font-family: 'Cormorant Garamond', serif; }
+
+/* ===== NAVIGATION ===== */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.25rem 3rem; display: flex; justify-content: space-between; align-items: center; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+.nav.scrolled { background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 1px 0 #e5e3df; padding: 0.85rem 3rem; }
+.nav-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 500; letter-spacing: 0.03em; color: #fff; text-decoration: none; transition: color 0.4s; }
+.nav.scrolled .nav-brand { color: #1a1a1a; }
+.nav-links { display: flex; gap: 2.25rem; list-style: none; align-items: center; }
+.nav-links a { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.4s; position: relative; }
+.nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: #C4A265; transition: width 0.3s; }
+.nav-links a:hover::after { width: 100%; }
+.nav-links a.active::after { width: 100%; }
+.nav.scrolled .nav-links a { color: #1a1a1a; }
+.nav-cta-link { font-size: 0.7rem !important; padding: 0.55rem 1.5rem; border: 1px solid rgba(255,255,255,0.5); transition: all 0.4s !important; }
+.nav-cta-link:hover { background: #C4A265 !important; border-color: #C4A265 !important; color: #fff !important; }
+.nav.scrolled .nav-cta-link { border-color: #1a1a1a; }
+.nav.scrolled .nav-cta-link:hover { background: #1a1a1a !important; color: #fff !important; border-color: #1a1a1a !important; }
+.nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; z-index: 200; }
+.nav-hamburger span { width: 24px; height: 1.5px; background: #fff; transition: all 0.3s; }
+.nav.scrolled .nav-hamburger span { background: #1a1a1a; }
+.mobile-menu { display: none; position: fixed; inset: 0; z-index: 150; background: rgba(26,26,26,0.98); backdrop-filter: blur(20px); flex-direction: column; justify-content: center; align-items: center; gap: 2.5rem; }
+.mobile-menu.active { display: flex; }
+.mobile-menu a { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; font-weight: 300; color: #fff; text-decoration: none; transition: color 0.3s; }
+.mobile-menu a:hover { color: #C4A265; }
+
+/* ===== HERO ===== */
+.hero { position: relative; height: 100vh; min-height: 650px; max-height: 1200px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.hero-image-wrap { position: absolute; inset: 0; z-index: 0; }
+.hero-image-wrap img { width: 100%; height: 115%; object-fit: cover; object-position: center 40%; will-change: transform; }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,0.65) 0%, rgba(10,10,10,0.35) 35%, rgba(10,10,10,0.2) 60%, rgba(10,10,10,0.3) 100%); z-index: 1; }
+.hero-content { position: relative; z-index: 2; text-align: center; color: #fff; padding: 0 clamp(1.5rem, 6%, 6%); max-width: 900px; }
+.hero-tag { font-family: 'Inter', sans-serif; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #C4A265; margin-bottom: 2rem; opacity: 0; transform: translateY(20px); animation: heroFade 0.8s 0.3s forwards; }
+.hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5.5vw, 4.2rem); font-weight: 300; line-height: 1.15; letter-spacing: -0.01em; opacity: 0; transform: translateY(25px); animation: heroFade 0.8s 0.5s forwards; }
+.hero-title em { font-style: italic; color: #C4A265; }
+.hero-sub { font-family: 'Cormorant Garamond', serif; font-size: clamp(1rem, 1.8vw, 1.3rem); font-weight: 300; font-style: italic; color: rgba(255,255,255,0.7); margin-top: 1.5rem; line-height: 1.6; opacity: 0; transform: translateY(20px); animation: heroFade 0.8s 0.7s forwards; max-width: 600px; margin-left: auto; margin-right: auto; }
+.hero-scroll { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; text-decoration: none; opacity: 0; animation: heroFade 0.8s 1s forwards; }
+.hero-scroll span { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+.scroll-line { width: 1px; height: 40px; background: rgba(255,255,255,0.3); position: relative; overflow: hidden; }
+.scroll-line::after { content: ''; position: absolute; top: -100%; left: 0; width: 1px; height: 100%; background: #C4A265; animation: scrollPulse 2s infinite; }
+@keyframes heroFade { to { opacity: 1; transform: translateY(0); } }
+@keyframes scrollPulse { 0% { top: -100%; } 50% { top: 0; } 100% { top: 100%; } }
+
+/* ===== COMMUTE SECTION ===== */
+.commute-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
+.commute-visual { position: relative; }
+.commute-compare { display: flex; flex-direction: column; gap: 1.5rem; }
+.commute-route { display: flex; align-items: center; gap: 1.5rem; padding: 1.5rem 2rem; background: #f5f4f2; border-left: 3px solid #e5e3df; transition: border-color 0.3s, background 0.3s; }
+.commute-route:hover { border-left-color: #C4A265; }
+.commute-route.highlight { background: #faf8f3; border-left-color: #C4A265; }
+.commute-time { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 400; color: #C4A265; line-height: 1; min-width: 70px; }
+.commute-time span { font-size: 0.85rem; font-weight: 300; color: #999; }
+.commute-desc { flex: 1; }
+.commute-desc strong { font-weight: 500; color: #1a1a1a; display: block; font-size: 0.9rem; margin-bottom: 0.15rem; }
+.commute-desc small { font-size: 0.78rem; color: #888; }
+.commute-note { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-style: italic; color: #1a1a1a; line-height: 1.5; padding: 1.5rem 0; border-top: 1px solid #e5e3df; margin-top: 0.5rem; }
+
+/* ===== SCHOOLS SECTION ===== */
+.schools-section { background: #f5f4f2; }
+.schools-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: #e5e3df; border: 1px solid #e5e3df; max-width: 1000px; margin: 0 auto; }
+.school-card { background: #fff; padding: 2.5rem 2rem; }
+.school-type { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #C4A265; margin-bottom: 0.5rem; }
+.school-name { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 500; color: #1a1a1a; margin-bottom: 0.4rem; }
+.school-detail { font-size: 0.82rem; color: #666; line-height: 1.65; }
+.ib-callout { grid-column: 1 / -1; background: #1a1a1a; padding: 3rem 2.5rem; display: flex; align-items: center; gap: 2.5rem; }
+.ib-badge { min-width: 90px; text-align: center; }
+.ib-badge-text { font-family: 'Inter', sans-serif; font-size: 0.58rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: #C4A265; border: 1.5px solid #C4A265; padding: 0.6rem 1rem; display: inline-block; }
+.ib-content h3 { color: #fff; font-size: 1.5rem; margin-bottom: 0.5rem; }
+.ib-content p { color: rgba(255,255,255,0.6); font-size: 0.88rem; line-height: 1.7; }
+
+/* ===== SAFETY SECTION ===== */
+.safety-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; max-width: 1000px; margin: 0 auto; }
+.safety-card { text-align: center; padding: 2.5rem 2rem; }
+.safety-number { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 300; color: #C4A265; line-height: 1; margin-bottom: 0.5rem; }
+.safety-number span { font-size: 1.5rem; }
+.safety-stat { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: #1a1a1a; margin-bottom: 0.5rem; }
+.safety-desc { font-size: 0.82rem; color: #666; line-height: 1.65; }
+.safety-quote { max-width: 700px; margin: 3rem auto 0; text-align: center; padding-top: 3rem; border-top: 1px solid #e5e3df; }
+.safety-quote blockquote { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 300; font-style: italic; color: #1a1a1a; line-height: 1.5; }
+
+/* ===== NATURE SECTION ===== */
+.nature-section { background: #1a1a1a; color: #fff; overflow: hidden; }
+.nature-section .section-label { color: #C4A265; }
+.nature-section h2 { color: #fff; }
+.nature-hero { position: relative; height: 50vh; min-height: 350px; max-height: 550px; overflow: hidden; margin-bottom: clamp(3rem, 6vw, 5rem); }
+.nature-hero img { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; }
+.nature-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, #1a1a1a 0%, rgba(26,26,26,0.3) 40%, transparent 100%); }
+.nature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 4vw, 4rem); }
+.nature-col p { color: rgba(255,255,255,0.6); font-size: 0.95rem; line-height: 1.85; margin-bottom: 1.25rem; }
+.nature-feature { display: flex; gap: 1rem; margin-bottom: 1.5rem; align-items: flex-start; }
+.nature-feature-icon { min-width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(196,162,101,0.4); color: #C4A265; font-size: 0.85rem; font-weight: 600; font-family: 'Cormorant Garamond', serif; }
+.nature-feature-text strong { display: block; color: #fff; font-weight: 500; font-size: 0.88rem; margin-bottom: 0.15rem; }
+.nature-feature-text span { color: rgba(255,255,255,0.5); font-size: 0.82rem; line-height: 1.5; }
+.nature-callout { margin-top: 2rem; padding: 1.5rem 2rem; border: 1px solid rgba(196,162,101,0.3); background: rgba(196,162,101,0.06); }
+.nature-callout p { color: rgba(255,255,255,0.7); font-size: 0.88rem; font-style: italic; font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.6; }
+.nature-callout strong { color: #C4A265; font-weight: 500; }
+
+/* ===== TOWN SECTION ===== */
+.town-section { background: #f5f4f2; }
+.town-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: #e5e3df; border: 1px solid #e5e3df; }
+.town-card { background: #fff; padding: 2.25rem; }
+.town-card-label { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #C4A265; margin-bottom: 0.75rem; }
+.town-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 500; color: #1a1a1a; margin-bottom: 0.5rem; }
+.town-card p { font-size: 0.82rem; color: #666; line-height: 1.7; }
+.town-card ul { list-style: none; padding: 0; }
+.town-card ul li { font-size: 0.82rem; color: #666; line-height: 1.7; padding: 0.2rem 0; padding-left: 1rem; position: relative; }
+.town-card ul li::before { content: ''; position: absolute; left: 0; top: 0.7em; width: 4px; height: 4px; background: #C4A265; border-radius: 50%; }
+
+/* ===== COMPARISON TABLE ===== */
+.comparison-section { background: #fff; }
+.comparison-table-wrap { max-width: 1100px; margin: 0 auto; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.comparison-table { width: 100%; border-collapse: collapse; min-width: 700px; }
+.comparison-table thead th { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 500; padding: 1.5rem 1.5rem 1rem; text-align: left; border-bottom: 2px solid #e5e3df; color: #1a1a1a; vertical-align: bottom; }
+.comparison-table thead th:first-child { font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #999; width: 170px; }
+.comparison-table thead th.sv-col { background: #faf8f3; border-bottom-color: #C4A265; }
+.comparison-table tbody td { padding: 1.15rem 1.5rem; font-size: 0.88rem; color: #444; border-bottom: 1px solid #f0ede8; vertical-align: top; line-height: 1.6; }
+.comparison-table tbody td:first-child { font-weight: 500; color: #1a1a1a; font-size: 0.82rem; letter-spacing: 0.02em; }
+.comparison-table tbody td.sv-col { background: #faf8f3; color: #1a1a1a; font-weight: 400; }
+.comparison-table tbody tr:last-child td { border-bottom: none; }
+.comparison-table .sv-highlight { color: #C4A265; font-weight: 500; }
+.table-footnote { font-size: 0.72rem; color: #999; max-width: 1100px; margin: 1.5rem auto 0; font-style: italic; }
+
+/* ===== CTA SECTION ===== */
+.cta-section { background: #1a1a1a; color: #fff; padding: clamp(4rem, 8vw, 6rem) 0; }
+.cta-section h2 { color: #fff; font-size: clamp(1.8rem, 3.5vw, 2.8rem); margin-bottom: 1rem; }
+.cta-section p { color: rgba(255,255,255,0.6); max-width: 600px; margin: 0 auto 2.5rem; font-size: 1rem; line-height: 1.7; }
+.cta-buttons { display: flex; gap: 1.25rem; justify-content: center; flex-wrap: wrap; }
+.cta-btn { display: inline-block; padding: 1rem 2.5rem; font-family: 'Inter', sans-serif; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; transition: all 0.4s ease; }
+.cta-btn-primary { background: #C4A265; color: #fff; border: 1px solid #C4A265; }
+.cta-btn-primary:hover { background: #d4b87a; border-color: #d4b87a; }
+.cta-btn-secondary { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+.cta-btn-secondary:hover { border-color: #fff; }
+
+/* ===== PULL QUOTE ===== */
+.pull-quote { max-width: 800px; margin: 0 auto; padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 4vw, 4rem); text-align: center; }
+.pull-quote blockquote { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 300; font-style: italic; color: #1a1a1a; line-height: 1.5; position: relative; }
+.pull-quote-line { width: 50px; height: 1px; background: #C4A265; margin: 0 auto 2rem; }
+
+/* ===== FOOTER ===== */
+.footer { background: #111; padding: 2rem 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+.footer p { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing: 0.05em; line-height: 1.8; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .commute-grid { grid-template-columns: 1fr; }
+  .safety-grid { grid-template-columns: 1fr 1fr 1fr; }
+  .nature-grid { grid-template-columns: 1fr; }
+  .town-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .nav { padding: 1rem 1.5rem; }
+  .nav.scrolled { padding: 0.75rem 1.5rem; }
+  .schools-grid { grid-template-columns: 1fr; }
+  .ib-callout { flex-direction: column; text-align: center; gap: 1.5rem; }
+  .safety-grid { grid-template-columns: 1fr; gap: 0; }
+  .safety-card { padding: 2rem; }
+  .town-grid { grid-template-columns: 1fr; }
+  .commute-route { padding: 1.25rem 1.5rem; }
+  .hero-scroll { display: none; }
+  .comparison-table-wrap { margin: 0 -1rem; padding: 0 1rem; }
+}
+@media (max-width: 480px) {
+  .cta-buttons { flex-direction: column; align-items: center; }
+  .cta-btn { width: 100%; max-width: 300px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-brand">300 Village Lane</a>
+  <ul class="nav-links">
+    <li><a href="index.html">The Home</a></li>
+    <li><a href="scotts-valley.html" class="active">Scotts Valley</a></li>
+    <li><a href="index.html#contact" class="nav-cta-link">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMobile()">The Home</a>
+  <a href="scotts-valley.html" onclick="closeMobile()">Scotts Valley</a>
+  <a href="index.html#contact" onclick="closeMobile()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-image-wrap">
+    <img src="https://images.unsplash.com/photo-1542202229-7d93c33f5d07?w=1600&q=80" alt="Sunlight filtering through towering redwood trees in the Santa Cruz Mountains" id="heroParallax" fetchpriority="high">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">The Santa Cruz Mountains</div>
+    <h1 class="hero-title">Thirty minutes from Silicon Valley.<br><em>A world apart.</em></h1>
+    <p class="hero-sub">Why families are moving to Scotts Valley &mdash; and why they never look back.</p>
+  </div>
+  <a href="#commute" class="hero-scroll">
+    <span>Discover</span>
+    <div class="scroll-line"></div>
+  </a>
+</section>
+
+<!-- ===== THE COMMUTE ===== -->
+<section class="section" id="commute">
+  <div class="container">
+    <div class="text-center reveal" style="margin-bottom: 3rem;">
+      <span class="section-label">The Commute</span>
+      <h2>Better Than You Think</h2>
+      <p style="color:#666; max-width:600px; margin:1rem auto 0; font-size:0.95rem;">The biggest objection Silicon Valley families raise is the commute. Here is the reality.</p>
+    </div>
+    <div class="commute-grid">
+      <div class="commute-visual reveal">
+        <div class="commute-compare">
+          <div class="commute-route highlight">
+            <div class="commute-time">30 <span>min</span></div>
+            <div class="commute-desc">
+              <strong>Scotts Valley to Cupertino</strong>
+              <small>Highway 17 &rarr; Highway 85. Against traffic.</small>
+            </div>
+          </div>
+          <div class="commute-route">
+            <div class="commute-time">35 <span>min</span></div>
+            <div class="commute-desc">
+              <strong>Scotts Valley to Apple Park</strong>
+              <small>Door to desk in the time it takes to finish a podcast.</small>
+            </div>
+          </div>
+          <div class="commute-route">
+            <div class="commute-time">30 <span>min</span></div>
+            <div class="commute-desc">
+              <strong>Cupertino to Menlo Park</strong>
+              <small>The commute people already do daily on 280/101.</small>
+            </div>
+          </div>
+          <div class="commute-route">
+            <div class="commute-time">40 <span>min</span></div>
+            <div class="commute-desc">
+              <strong>Sunnyvale to San Francisco</strong>
+              <small>The commute nobody blinks at.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal reveal-d2">
+        <p style="font-size:0.95rem; color:#666; line-height:1.85; margin-bottom:1.5rem;">The drive from Scotts Valley to Silicon Valley is 30 minutes on Highway 17 &mdash; a scenic, well-maintained four-lane highway through the Santa Cruz Mountains. No stop-and-go. No 101 parking lot. Just redwoods and curves.</p>
+        <p style="font-size:0.95rem; color:#666; line-height:1.85; margin-bottom:1.5rem;">Commuter shuttle services run to major tech employers, many of them free. But the real shift is this: the era of the five-day commute is over. When you drive to the office two or three days a week, a 30-minute scenic drive is not a compromise. It is a trade you make gladly for 3,368 square feet and a half-acre of redwoods.</p>
+        <div class="commute-note">
+          The commute you are afraid of is shorter than the commute you already have.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PULL QUOTE ===== -->
+<div class="pull-quote reveal">
+  <div class="pull-quote-line"></div>
+  <blockquote>&ldquo;We spent three years in Cupertino traffic before we realized we could live in the mountains and get to work in the same time.&rdquo;</blockquote>
+</div>
+
+<!-- ===== THE SCHOOLS ===== -->
+<section class="section schools-section" id="schools">
+  <div class="container">
+    <div class="text-center reveal" style="margin-bottom: 3rem;">
+      <span class="section-label">Education</span>
+      <h2>The Schools Are Exceptional</h2>
+      <p style="color:#666; max-width:620px; margin:1rem auto 0; font-size:0.95rem;">Scotts Valley Unified School District is one of the top-rated districts in California. Every school in the system serves this address.</p>
+    </div>
+    <div class="schools-grid reveal">
+      <div class="school-card">
+        <div class="school-type">Elementary</div>
+        <div class="school-name">Vine Hill Elementary</div>
+        <div class="school-detail">Grades K&ndash;3. Strong emphasis on foundational academics, art, and outdoor learning. Walking distance to parks and nature.</div>
+      </div>
+      <div class="school-card">
+        <div class="school-type">Elementary</div>
+        <div class="school-name">Brook Knoll Elementary</div>
+        <div class="school-detail">Grades 4&ndash;5. Accelerated programs in math and science. Known for a supportive, engaged parent community.</div>
+      </div>
+      <div class="school-card">
+        <div class="school-type">Middle School</div>
+        <div class="school-name">Scotts Valley Middle School</div>
+        <div class="school-detail">Grades 6&ndash;8. Advanced math tracks, competitive robotics, and strong performing arts programs prepare students for high school and beyond.</div>
+      </div>
+      <div class="school-card">
+        <div class="school-type">Private Option</div>
+        <div class="school-name">Baymonte Christian School</div>
+        <div class="school-detail">K&ndash;12 private school in Scotts Valley. College preparatory curriculum with small class sizes and individualized attention.</div>
+      </div>
+      <div class="ib-callout">
+        <div class="ib-badge">
+          <div class="ib-badge-text">IB World<br>School</div>
+        </div>
+        <div class="ib-content">
+          <h3>Scotts Valley High School</h3>
+          <p>Scotts Valley High offers the International Baccalaureate Diploma Programme &mdash; one of the most rigorous and globally recognized pre-university curricula available. IB graduates earn advanced placement at top universities worldwide. For tech families who value education above all else, this is the detail that changes the equation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SAFETY & COMMUNITY ===== -->
+<section class="section" id="safety">
+  <div class="container">
+    <div class="text-center reveal" style="margin-bottom: 3rem;">
+      <span class="section-label">Safety &amp; Community</span>
+      <h2>Small Town Feel. Serious Substance.</h2>
+    </div>
+    <div class="safety-grid reveal">
+      <div class="safety-card">
+        <div class="safety-number">#1</div>
+        <div class="safety-stat">Safest City</div>
+        <div class="safety-desc">Lowest crime rate in all of Santa Cruz County. Consistently ranked among the safest small cities in California.</div>
+      </div>
+      <div class="safety-card">
+        <div class="safety-number">12<span>K</span></div>
+        <div class="safety-stat">Population</div>
+        <div class="safety-desc">Small enough that your kids ride bikes to their friends' houses. Large enough for excellent dining, shopping, and community life.</div>
+      </div>
+      <div class="safety-card">
+        <div class="safety-number">1966</div>
+        <div class="safety-stat">Incorporated</div>
+        <div class="safety-desc">Not a new subdivision. An established, stable community with deep roots, mature infrastructure, and decades of civic investment.</div>
+      </div>
+    </div>
+    <div class="safety-quote reveal">
+      <blockquote>Netflix was founded in Scotts Valley. So was Seagate. Zero Motorcycles is headquartered here. This is not rural. It is discreetly sophisticated &mdash; a town that does not need to prove itself.</blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NATURE ===== -->
+<section class="section nature-section" id="nature">
+  <div class="nature-hero">
+    <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=1600&q=80" alt="Misty trail through a lush redwood forest" loading="lazy">
+    <div class="nature-hero-overlay"></div>
+  </div>
+  <div class="container">
+    <div class="text-center reveal" style="margin-bottom: 3rem;">
+      <span class="section-label">The Outdoors</span>
+      <h2>Nature Is Not a Weekend Activity. It Is Your Backyard.</h2>
+    </div>
+    <div class="nature-grid">
+      <div class="nature-col reveal">
+        <p>In Cupertino, you drive to a park. In Scotts Valley, you step off your patio and walk into 100 acres of protected open space. The Polo Ranch community has a private trailhead to the Glenwood Open Space Preserve &mdash; award-winning trails for hiking, mountain biking, and dog walking &mdash; directly accessible from your property line.</p>
+        <p>Santa Cruz's beaches are fifteen minutes away. Not a theoretical fifteen-minutes-if-there-is-no-traffic fifteen minutes. Actual, reliable, beautiful-drive fifteen minutes. Your Tuesday evenings can end with sunset over Monterey Bay.</p>
+        <div class="nature-callout">
+          <p><strong>From 300 Village Lane:</strong> Walk out the back gate to a private trailhead connecting to over 100 acres of protected open space. No driving. No parking lots. Just forest.</p>
+        </div>
+      </div>
+      <div class="nature-col reveal reveal-d2">
+        <div class="nature-feature">
+          <div class="nature-feature-icon">G</div>
+          <div class="nature-feature-text">
+            <strong>Glenwood Open Space Preserve</strong>
+            <span>Award-winning trails for hiking, biking, and walking. Accessible from Polo Ranch's private trailhead.</span>
+          </div>
+        </div>
+        <div class="nature-feature">
+          <div class="nature-feature-icon">S</div>
+          <div class="nature-feature-text">
+            <strong>Siltanen Park</strong>
+            <span>Sports fields, playgrounds, picnic areas. The park where your kids will spend their after-school hours.</span>
+          </div>
+        </div>
+        <div class="nature-feature">
+          <div class="nature-feature-icon">K</div>
+          <div class="nature-feature-text">
+            <strong>Skypark</strong>
+            <span>Dog park, skate park, soccer fields. Home to Scotts Valley's food truck festivals and community events.</span>
+          </div>
+        </div>
+        <div class="nature-feature">
+          <div class="nature-feature-icon">L</div>
+          <div class="nature-feature-text">
+            <strong>Lodato Park</strong>
+            <span>Nature trails through oak woodlands. A locals' favorite for afternoon hikes and wildlife watching.</span>
+          </div>
+        </div>
+        <div class="nature-feature">
+          <div class="nature-feature-icon">15</div>
+          <div class="nature-feature-text">
+            <strong>Santa Cruz Beaches</strong>
+            <span>Fifteen minutes to the boardwalk, surf breaks, and Monterey Bay. The coast is not an excursion here &mdash; it is Tuesday.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== THE TOWN ===== -->
+<section class="section town-section" id="town">
+  <div class="container">
+    <div class="text-center reveal" style="margin-bottom: 3rem;">
+      <span class="section-label">The Town</span>
+      <h2>A Real Place With Real Culture</h2>
+      <p style="color:#666; max-width:580px; margin:1rem auto 0; font-size:0.95rem;">This is not a bedroom community. Scotts Valley has its own identity &mdash; and everything you need without crossing the hill.</p>
+    </div>
+    <div class="town-grid reveal">
+      <div class="town-card">
+        <div class="town-card-label">Tech Heritage</div>
+        <h4>Born in Innovation</h4>
+        <ul>
+          <li>Netflix was founded here</li>
+          <li>Seagate was founded here</li>
+          <li>Zero Motorcycles HQ</li>
+          <li>Growing tech &amp; startup presence</li>
+        </ul>
+      </div>
+      <div class="town-card">
+        <div class="town-card-label">Dining</div>
+        <h4>More Than You Expect</h4>
+        <ul>
+          <li>Local sushi and Asian cuisine</li>
+          <li>Wood-fired pizza</li>
+          <li>Craft burger joints</li>
+          <li>Mexican, Mediterranean, Indian</li>
+          <li>Local breweries &amp; wine tasting</li>
+        </ul>
+      </div>
+      <div class="town-card">
+        <div class="town-card-label">Shopping</div>
+        <h4>Everything Walkable</h4>
+        <ul>
+          <li>Brand new Target</li>
+          <li>Safeway &amp; Nob Hill</li>
+          <li>Scotts Valley Market</li>
+          <li>Boutique shops &amp; gift stores</li>
+          <li>All within minutes of home</li>
+        </ul>
+      </div>
+      <div class="town-card">
+        <div class="town-card-label">Events</div>
+        <h4>Community Life</h4>
+        <ul>
+          <li>Food truck festivals at Skypark</li>
+          <li>Farmers' markets</li>
+          <li>Holiday parades and fairs</li>
+          <li>Youth sports leagues</li>
+        </ul>
+      </div>
+      <div class="town-card">
+        <div class="town-card-label">Recreation</div>
+        <h4>Active Living</h4>
+        <ul>
+          <li>Mountain biking world-class trails</li>
+          <li>Surfing: 15 min to Pleasure Point</li>
+          <li>Hiking: 100+ miles of trails nearby</li>
+          <li>Secret fishing pond (ask a local)</li>
+        </ul>
+      </div>
+      <div class="town-card">
+        <div class="town-card-label">Proximity</div>
+        <h4>Connected, Not Isolated</h4>
+        <ul>
+          <li>5 min to Highway 17</li>
+          <li>15 min to Santa Cruz</li>
+          <li>30 min to Silicon Valley</li>
+          <li>45 min to San Jose Airport</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== THE COMPARISON ===== -->
+<section class="section comparison-section" id="comparison">
+  <div class="container">
+    <div class="text-center reveal" style="margin-bottom: 3rem;">
+      <span class="section-label">The Comparison</span>
+      <h2>What Your Money Buys on Each Side of the Hill</h2>
+      <p style="color:#666; max-width:620px; margin:1rem auto 0; font-size:0.95rem;">The same data. The same price range. Three very different lives.</p>
+    </div>
+    <div class="comparison-table-wrap reveal">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="sv-col">Scotts Valley</th>
+            <th>Cupertino</th>
+            <th>Palo Alto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>$2.5M Gets You</td>
+            <td class="sv-col"><span class="sv-highlight">3,368 sqft, 4 bed/4 bath</span><br>Half-acre lot with redwoods and a heritage oak</td>
+            <td>1,800 sqft, 3 bed/2 bath<br>5,000 sqft lot, no mature trees</td>
+            <td>1,200 sqft, 2 bed/1 bath<br>Likely a teardown</td>
+          </tr>
+          <tr>
+            <td>Lot Size</td>
+            <td class="sv-col"><span class="sv-highlight">8,272 sqft</span></td>
+            <td>~5,000 sqft</td>
+            <td>~4,000 sqft</td>
+          </tr>
+          <tr>
+            <td>Schools</td>
+            <td class="sv-col"><span class="sv-highlight">IB programme, top-rated district</span></td>
+            <td>Also excellent &mdash; at 3x the housing cost</td>
+            <td>Also excellent &mdash; at 4x the housing cost</td>
+          </tr>
+          <tr>
+            <td>Commute to Apple Park</td>
+            <td class="sv-col">35 min</td>
+            <td>10 min</td>
+            <td>25 min</td>
+          </tr>
+          <tr>
+            <td>Beach</td>
+            <td class="sv-col"><span class="sv-highlight">15 min</span></td>
+            <td>45 min</td>
+            <td>60 min</td>
+          </tr>
+          <tr>
+            <td>Outdoor Access</td>
+            <td class="sv-col"><span class="sv-highlight">Walk to 100-acre preserve</span></td>
+            <td>Drive to a park</td>
+            <td>Drive to a park</td>
+          </tr>
+          <tr>
+            <td>Year Built</td>
+            <td class="sv-col"><span class="sv-highlight">2022</span></td>
+            <td>1960s&ndash;70s typical</td>
+            <td>1950s typical</td>
+          </tr>
+          <tr>
+            <td>Backyard</td>
+            <td class="sv-col"><span class="sv-highlight">Permaculture garden, heritage oak, forest</span></td>
+            <td>Concrete patio</td>
+            <td>What backyard?</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-footnote reveal">Cupertino and Palo Alto figures reflect typical listings at the $2.5M price point as of mid-2026. Scotts Valley column reflects 300 Village Lane specifically.</p>
+
+    <!-- CLOSER -->
+    <div class="pull-quote reveal" style="padding-top: 3rem; padding-bottom: 0;">
+      <div class="pull-quote-line"></div>
+      <blockquote>The same quality of life. The same access to Silicon Valley. A fraction of the cost. And your children grow up in the redwoods.</blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section" id="cta">
+  <div class="container text-center reveal">
+    <span class="section-label">300 Village Lane</span>
+    <h2>Ready to See What $2.5M Buys in Scotts Valley?</h2>
+    <p>3,368 square feet. Four bedrooms. Half-acre lot. Redwoods. Heritage oak. Built 2022. Private trailhead to 100 acres of open space.</p>
+    <div class="cta-buttons">
+      <a href="index.html" class="cta-btn cta-btn-primary">See the Home</a>
+      <a href="index.html#contact" class="cta-btn cta-btn-secondary">Schedule a Private Showing</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>300 Village Lane, Scotts Valley, California 95066<br>
+  Information deemed reliable but not guaranteed. Buyer to verify all information independently.</p>
+</footer>
+
+<script>
+/* ===== NAV SCROLL ===== */
+var mainNav = document.getElementById('mainNav');
+window.addEventListener('scroll', function() {
+  if (window.scrollY > 80) mainNav.classList.add('scrolled');
+  else mainNav.classList.remove('scrolled');
+}, { passive: true });
+
+/* ===== MOBILE MENU ===== */
+document.getElementById('hamburger').addEventListener('click', function() {
+  var mm = document.getElementById('mobileMenu');
+  mm.classList.toggle('active');
+  document.body.style.overflow = mm.classList.contains('active') ? 'hidden' : '';
+});
+function closeMobile() {
+  document.getElementById('mobileMenu').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+/* ===== HERO PARALLAX ===== */
+var heroEl = document.getElementById('heroParallax');
+var ticking = false;
+window.addEventListener('scroll', function() {
+  if (!ticking) {
+    window.requestAnimationFrame(function() {
+      var s = window.pageYOffset;
+      if (s < window.innerHeight) heroEl.style.transform = 'translateY(' + (s * 0.25) + 'px)';
+      ticking = false;
+    });
+    ticking = true;
+  }
+}, { passive: true });
+
+/* ===== SCROLL REVEAL ===== */
+var revEls = document.querySelectorAll('.reveal');
+var revObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) { e.target.classList.add('visible'); revObs.unobserve(e.target); }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+revEls.forEach(function(el) { revObs.observe(el); });
+
+/* ===== COUNTER ANIMATION (for safety stats) ===== */
+function animateCounters() {
+  var counters = document.querySelectorAll('.safety-number');
+  counters.forEach(function(counter) {
+    var observed = false;
+    var obs = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting && !observed) {
+        observed = true;
+        obs.unobserve(counter);
+      }
+    }, { threshold: 0.5 });
+    obs.observe(counter);
+  });
+}
+animateCounters();
+</script>
+</body>
+</html>
